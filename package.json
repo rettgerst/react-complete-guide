@@ -5,14 +5,19 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
+    "test:watch": "react-scripts test --watchAll=true",
     "eject": "react-scripts eject",
     "prettier": "prettier -c './**/*.{ts,json,html,scss}'",
     "prettier:fix": "prettier --write './**/*.{ts,json,html,css}'"
   },
-  "precommit": [
-    "prettier"
-  ],
+  "precommit": {
+    "silent": true,
+    "run": [
+      "test",
+      "prettier"
+    ]
+  },
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
